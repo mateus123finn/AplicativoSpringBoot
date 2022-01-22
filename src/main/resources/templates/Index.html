@@ -1,7 +1,9 @@
 <!doctype html>
 <html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
+    <link rel="icon" href="data:,">
     <meta charset="UTF-8">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -27,12 +29,13 @@
             </tr>
         </thead>
         <tbody>
-        <tr th:each="evento : ${eventos}">
-                <td><span th:text="${evento.nome}"></span></td>
-                <td><span th:text="${evento.local}"></span></td>
-                <td><span th:text="${evento.data}"></span></td>
-                <td><span th:text="${evento.horario}"></span></td>
-        </tr>
+            <p>teste</p>
+            <tr th:each="evento : ${eventos}">
+                    <td><a th:href = "${(#mvc.url('EC#detalhesEvento').arg(0,evento.codigo)).build()}"><span th:text="${evento.nome}"></span></a></td>
+                    <td><span th:text="${evento.local}"></span></td>
+                    <td><span th:text="${evento.data}"></span></td>
+                    <td><span th:text="${evento.horario}"></span></td>
+            </tr>
         </tbody>
     </table>
 
