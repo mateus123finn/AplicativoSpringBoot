@@ -30,12 +30,23 @@
     </form>
 </div>
 <h5>Lista de Convidados</h5>
-<div th:each="convidado : ${convidados}">
 
-    <p>Nome: <span th:text="${convidado.NomeConvidado}"></span></p>
-    <p>CPF: <span th:text="${convidado.CPF}"></span></p>
-</div>
-
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Deletar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="convidado : ${convidados}">
+            <td><span th:text="${convidado.NomeConvidado}"></span></td>
+            <td><span th:text="${convidado.CPF}"></span></td>
+            <td><a th:href = "${(#mvc.url('EC#deletarConvidado').arg(0,convidado.CPF)).build()}">DELETE</a></td>
+        </tr>
+    </tbody>
+</table>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 </html>
